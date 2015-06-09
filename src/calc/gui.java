@@ -7,7 +7,7 @@ package calc;
 
 /**
  *
- * @author Henk
+ * @author CV
  */
 public class gui extends javax.swing.JPanel {
 
@@ -17,7 +17,9 @@ public class gui extends javax.swing.JPanel {
     public gui() {
         initComponents();
     }
-
+    int first;
+    int second;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,19 +39,40 @@ public class gui extends javax.swing.JPanel {
         eightbut = new javax.swing.JButton();
         ninebut = new javax.swing.JButton();
         zerobut = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        addbut = new javax.swing.JButton();
+        substractbut = new javax.swing.JButton();
+        multiplybut = new javax.swing.JButton();
+        dividebut = new javax.swing.JButton();
+        sumbut = new javax.swing.JButton();
+        sumtext = new javax.swing.JLabel();
 
         onebut.setText("1");
+        onebut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onebutActionPerformed(evt);
+            }
+        });
 
         twobut.setText("2");
+        twobut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twobutActionPerformed(evt);
+            }
+        });
 
         threebut.setText("3");
+        threebut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                threebutActionPerformed(evt);
+            }
+        });
 
         fourbut.setText("4");
+        fourbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fourbutActionPerformed(evt);
+            }
+        });
 
         fivebut.setText("5");
         fivebut.addActionListener(new java.awt.event.ActionListener() {
@@ -59,61 +82,101 @@ public class gui extends javax.swing.JPanel {
         });
 
         sixbut.setText("6");
+        sixbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixbutActionPerformed(evt);
+            }
+        });
 
         sevenbut.setText("7");
+        sevenbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenbutActionPerformed(evt);
+            }
+        });
 
         eightbut.setText("8");
+        eightbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eightbutActionPerformed(evt);
+            }
+        });
 
         ninebut.setText("9");
+        ninebut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ninebutActionPerformed(evt);
+            }
+        });
 
         zerobut.setText("0");
+        zerobut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zerobutActionPerformed(evt);
+            }
+        });
 
-        jButton11.setText("jButton11");
+        addbut.setText("+");
 
-        jButton1.setText("jButton1");
+        substractbut.setText("-");
 
-        jButton2.setText("jButton2");
+        multiplybut.setText("X");
 
-        jButton3.setText("jButton3");
+        dividebut.setText("÷");
 
-        jButton4.setText("jButton4");
+        sumbut.setText("=");
+        sumbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sumbutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(onebut)
-                    .addComponent(fourbut)
-                    .addComponent(sevenbut))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(zerobut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(twobut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fivebut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(eightbut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ninebut)
-                    .addComponent(sixbut)
-                    .addComponent(threebut))
-                .addContainerGap(188, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sumbut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dividebut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(addbut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(substractbut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(multiplybut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(onebut)
+                            .addComponent(fourbut)
+                            .addComponent(sevenbut))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(zerobut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(twobut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(fivebut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(eightbut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ninebut)
+                            .addComponent(sixbut)
+                            .addComponent(threebut))
+                        .addGap(0, 178, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sumtext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(13, 13, 13)
+                .addComponent(sumtext, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(onebut)
                     .addComponent(twobut)
@@ -130,40 +193,156 @@ public class gui extends javax.swing.JPanel {
                     .addComponent(ninebut))
                 .addGap(18, 18, 18)
                 .addComponent(zerobut)
-                .addGap(66, 66, 66)
-                .addComponent(jButton11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addGap(59, 59, 59)
+                .addComponent(addbut)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(substractbut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(multiplybut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dividebut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(sumbut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void fivebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fivebutActionPerformed
-        // TODO add your handling code here:
+        if(first == 0)
+        {
+            second = 5;
+        }
+        else
+        {
+        first = 5;
+        }
     }//GEN-LAST:event_fivebutActionPerformed
+
+    private void onebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onebutActionPerformed
+        if(first == 0)
+        {
+            second = 1;
+        }
+        else
+        {
+            first = 1;
+        }
+        
+    }//GEN-LAST:event_onebutActionPerformed
+
+    private void twobutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twobutActionPerformed
+        if(first == 0)
+        {
+            second = 2;
+        }
+        else
+        {
+            first = 2;
+        }
+    }//GEN-LAST:event_twobutActionPerformed
+
+    private void threebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threebutActionPerformed
+        if(first == 0)
+        {
+            second = 3;
+        }
+        else
+        {
+            first = 3;
+        }
+    }//GEN-LAST:event_threebutActionPerformed
+
+    private void fourbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourbutActionPerformed
+        if(first == 0)
+        {
+            second = 4;
+        }
+        else
+        {
+            first = 4;
+        }
+    }//GEN-LAST:event_fourbutActionPerformed
+
+    private void sixbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixbutActionPerformed
+        if(first == 0)
+        {
+            second = 6;
+        }
+        else
+        {
+            first = 6;
+        }
+    }//GEN-LAST:event_sixbutActionPerformed
+
+    private void sevenbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenbutActionPerformed
+        if(first == 0)
+        {
+            second = 7;
+        }
+        else
+        {
+            first = 7;
+        }
+    }//GEN-LAST:event_sevenbutActionPerformed
+
+    private void eightbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eightbutActionPerformed
+        if(first == 0)
+        {
+            second = 8;
+        }
+        else
+        {
+            first = 8;
+        }
+    }//GEN-LAST:event_eightbutActionPerformed
+
+    private void ninebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ninebutActionPerformed
+        if(first == 0)
+        {
+            second = 9;
+        }
+        else
+        {
+            first = 9;
+        }
+    }//GEN-LAST:event_ninebutActionPerformed
+
+    private void zerobutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zerobutActionPerformed
+        if(first == 0)
+        {
+            second = 0;
+        }
+        else
+        {
+            first = 0;
+        }
+    }//GEN-LAST:event_zerobutActionPerformed
+
+    private void sumbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumbutActionPerformed
+        int answer = first * second;
+        sumtext = answer.ToString();
+    }//GEN-LAST:event_sumbutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addbut;
+    private javax.swing.JButton dividebut;
     private javax.swing.JButton eightbut;
     private javax.swing.JButton fivebut;
     private javax.swing.JButton fourbut;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton multiplybut;
     private javax.swing.JButton ninebut;
     private javax.swing.JButton onebut;
     private javax.swing.JButton sevenbut;
     private javax.swing.JButton sixbut;
+    private javax.swing.JButton substractbut;
+    private javax.swing.JButton sumbut;
+    private javax.swing.JLabel sumtext;
     private javax.swing.JButton threebut;
     private javax.swing.JButton twobut;
     private javax.swing.JButton zerobut;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }

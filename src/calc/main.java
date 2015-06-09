@@ -7,7 +7,7 @@ package calc;
 
 /**
  *
- * @author Henk
+ * @author CV
  */
 public class main {
 
