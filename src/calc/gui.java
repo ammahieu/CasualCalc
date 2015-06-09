@@ -16,6 +16,7 @@ public class gui extends javax.swing.JPanel {
      */
     public gui() {
         initComponents();
+        setVisible(true);
     }
     int first;
     int second;
@@ -319,8 +320,7 @@ public class gui extends javax.swing.JPanel {
     }//GEN-LAST:event_zerobutActionPerformed
 
     private void sumbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumbutActionPerformed
-        int answer = first * second;
-        sumtext = answer.ToString();
+        sumtext.setText(String.valueOf(first * second));
     }//GEN-LAST:event_sumbutActionPerformed
 
 
